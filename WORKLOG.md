@@ -1,19 +1,25 @@
 # Developer Portfolio Work Log
 
+Development journal for my seven-project portfolio. I direct the project scope and technical goals, using AI-assisted development tools.
+
 ## 24 November 2026 — Smart File Organizer
 
-I set out to build a lightweight Python utility to organize cluttered folders. I chose a preview-first command-line interface and the Python standard library to minimize dependencies and reduce the risk of accidental file changes.
+My objective was to build a lightweight Python utility for organizing cluttered folders. I prioritized a preview-first interface, minimal dependencies and protection against filename conflicts.
 
-Working with AI assistance, I established the project scope, created a public GitHub repository, and published the implementation, documentation and three automated regression tests. The implementation categorizes files by extension, skips hidden files and symlinks, and protects existing filenames with numeric suffixes.
+The implementation categorizes files by extension, skips hidden files and symlinks, and preserves existing filenames. Three regression tests cover preview and apply behavior, duplicate names and invalid folders.
 
-An initial GitHub file creation attempt did not produce a confirmed commit. I resolved the publishing blocker by validating an existing README update before retrying file creation successfully. The exact original failure cause remains unknown.
+An initial publishing attempt did not produce a confirmed commit. The publishing process was restored by validating a README update and retrying file creation. The original cause remains unknown.
 
-I configured GitHub Actions to test Python 3.10 and 3.13 on Windows, macOS and Linux. The workflow is committed; its first results have not yet been verified. Hard-link support is required for apply mode.
+The repository includes GitHub Actions for Windows, macOS and Linux with Python 3.10 and 3.13. Hosted test results remain unverified. Apply mode requires filesystem hard-link support.
 
-## Next milestone — Gravity Lab
+## 24 November 2026 — Gravity Lab
 
-I created the public repository for a planned Python/Pygame physics sandbox. Implementation and testing are pending.
+My goal was to create an interactive educational physics sandbox using Python and Pygame. The design separates physics from rendering, with adjustable gravity, mouse launching, trajectory trails and boundary bounces.
 
-## 24 November 2026 — Gravity Lab implementation
+Four regression tests cover acceleration, zero gravity and boundary collisions. The test suite and cross-platform GitHub Actions workflow are published. Execution results and graphical interaction still need independent verification. Particle-to-particle collisions are outside the current scope.
 
-With AI assistance, I implemented a Pygame projectile sandbox with adjustable keyboard-controlled gravity, mouse launching, trajectory trails and boundary bounces. I separated simulation logic from rendering and added four regression tests. All four corresponding physics checks passed in an isolated Python environment using the retrieved implementation. I published a GitHub Actions workflow targeting Windows, macOS and Linux with Python 3.12. Hosted CI results and graphical interaction remain unverified; Pygame was not installed in the local test environment. The simulation does not model particle-to-particle collisions.
+## 24 November 2026 — Maze Escape
+
+My third project explores procedural generation and browser-based game development. I selected a dependency-free JavaScript approach using randomized depth-first search and Canvas rendering.
+
+The published implementation includes keyboard and touch controls, a move counter, a victory condition and maze regeneration. Automated tests check connectivity, boundary integrity, reciprocal walls, absence of cycles and invalid dimensions. The README and Node.js GitHub Actions workflow are published. Test execution and browser verification remain pending.
