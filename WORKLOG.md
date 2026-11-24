@@ -13,3 +13,7 @@ I configured GitHub Actions to test Python 3.10 and 3.13 on Windows, macOS and L
 ## Next milestone — Gravity Lab
 
 I created the public repository for a planned Python/Pygame physics sandbox. Implementation and testing are pending.
+
+## 24 November 2026 — Gravity Lab implementation
+
+With AI assistance, I implemented a Pygame projectile sandbox with adjustable keyboard-controlled gravity, mouse launching, trajectory trails and boundary bounces. I separated simulation logic from rendering and added four regression tests. All four corresponding physics checks passed in an isolated Python environment using the retrieved implementation. I published a GitHub Actions workflow targeting Windows, macOS and Linux with Python 3.12. Hosted CI results and graphical interaction remain unverified; Pygame was not installed in the local test environment. The simulation does not model particle-to-particle collisions.
