@@ -1,5 +1,6 @@
 """Sort top-level files by extension, previewing changes by default."""
 import argparse
+import os
 from pathlib import Path
 
 CATEGORIES = {
@@ -34,7 +35,7 @@ def organize(folder, apply=False):
     if apply:
         for source, target in moves:
             target.parent.mkdir(exist_ok=True)
-            target.hardlink_to(source)
+            os.link(source, target)
             source.unlink()
     return moves
 

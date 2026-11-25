@@ -1,17 +1,19 @@
 # Smart File Organizer
 
-A lightweight Python CLI that sorts top-level files by extension into Images, Documents, Videos, Audio, Archives and Other.
+[![Tests](https://github.com/kolawolesolomon/smart-file-organizer/actions/workflows/tests.yml/badge.svg)](https://github.com/kolawolesolomon/smart-file-organizer/actions/workflows/tests.yml)
 
-## Usage
+Sort a cluttered folder from the command line with a preview-first Python tool. It categorizes top-level files by extension into Images, Documents, Videos, Audio, Archives and Other.
 
-Requires Python 3.8+; no third-party dependencies.
+## Setup and use
+
+Requires Python 3.8+ and the standard library. From the repository root, run the first command to review the plan and the second to apply it.
 
 ```sh
 python organizer.py /path/to/folder
 python organizer.py /path/to/folder --apply
 ```
 
-The first command previews changes. The second moves files, preserving existing names by adding numeric suffixes when necessary. Hidden files, symlinks and subfolders are skipped. Moves use hard links to avoid overwriting files; the filesystem must support hard links. A failure can leave earlier moves completed. Preview and back up important files first.
+Existing destination names receive numeric suffixes. Dot-prefixed files, symbolic links and subdirectories are skipped.
 
 ## Tests
 
@@ -19,4 +21,8 @@ The first command previews changes. The second moves files, preserving existing 
 python -m unittest -v
 ```
 
-Initial implementation; automated tests are included.
+Tests use temporary directories and cover preview, moves, categories, collisions, skipped entries, invalid folders and link failures. GitHub Actions runs the suite on Linux, macOS and Windows. The symbolic-link test skips on hosts where the process cannot create links.
+
+## Limitations
+
+Apply mode needs hard-link support and source and destination on the same filesystem. The organizer creates the destination link before removing the original entry. If a move fails, earlier moves may already be complete. Avoid simultaneous edits to the target folder during apply mode.
